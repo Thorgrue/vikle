@@ -9,7 +9,7 @@ module.exports = {
         'ciel':'#06AED5',
         'canard':'#086788',
         'prairie':'#33CA7F',
-      }
+      },
     },
   },
   variants: {

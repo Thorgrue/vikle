@@ -1,0 +1,12 @@
+<div class="container m-2 p-2">
+  <%= @audiobook.title %>
+  <p><%= @audiobook.author %></p>
+  <p><%= @audiobook.duration %> minutes</p>
+  <p><%= @audiobook.description %><p>
+  <p><%= link_to "Modifier mon conte", edit_audiobook_path(@audiobook) %> </p>
+  <p><%= link_to "Supprimer #{@audiobook.title}",
+            audiobook_path(@audiobook),
+            method: :delete,
+            data: { confirm: "Tu es sûr⋅e de toi?" } %></p>
+  <p class="text-center mx-auto w-6/12 bg-soleil rounded-full shadow"><%= link_to "Voir tous les contes", audiobooks_path  %></p>
+</div>

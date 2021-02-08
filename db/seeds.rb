@@ -35,7 +35,7 @@ puts 'Creating tales...'
   loupagneau.save!
 
   puts '> Dînette dans le tractopelle'
-  tractodinette = Audiobook.create(title: "Dînette dans le tractopelle", author: "Mélanie Grandgirard", duration: 500, description: "Dans le catalogue, les pages roses des jouets de filles sont bien séparées des pages bleues des jouets de garçons. Jusqu'au jour où le catalogue est déchiré et recollé dans le désordre. La poupée Annabelle qui rêvait de jouer au tractopelle rencontre la figurine Grand Jim qui adore la dînette. Garçons et filles partagent enfin leurs jouets et leurs jeux dans un catalogue aux pages violettes.")
+  tractodinette = Audiobook.create(title: "Dînette dans le tractopelle", author: "Mélanie Grandgirard", duration: 500, description: "Dans le catalogue, les pages roses des jouets de filles sont bien séparées des pages bleues des jouets de garçons! Jusqu'au jour où le catalogue est déchiré et recollé dans le désordre. La poupée Annabelle qui rêvait de jouer au tractopelle rencontre la figurine Grand Jim qui adore la dînette. Garçons et filles partagent enfin leurs jouets et leurs jeux dans un catalogue aux pages violettes.")
     pic = File.open("app/assets/images/tractodinette.jpg")
       tractodinette.photo.attach(io: pic, filename: 'tractodinette.jpg', content_type: 'image/jpg')
     record = File.open("app/assets/images/chaudoudous.mp4")

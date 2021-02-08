@@ -18,5 +18,17 @@ puts 'Creating users...'
 
 puts 'Creating tales...'
 
-  puts '> Le conte chaud et doux des chaudoudoux'
-  chaudoudoux = Audiobook.create(title: "Le conte chaud et doux des chaudoudoux", author: "Claude Steiner", duration: 420, description: "Un super conte qui fera rêver les enfants et les parents, rappelant l'importance de la gratuité et de l'amour")
+  puts '> Le conte chaud et doux des chaudoudous'
+  chaudoudous = Audiobook.create(title: "Le conte chaud et doux des chaudoudous", author: "Claude Steiner", duration: 420, description: "Un super conte qui fera rêver les enfants et les parents, rappelant l'importance de la gratuité et de l'amour")
+  pic = File.open("app/assets/images/chaudetdoux.jpg")
+  chaudoudous.photo.attach(io: pic, filename: 'chaudetdoux.jpg', content_type: 'image/jpg')
+  # record = File.open("app/assets/images/chaudoudous.mp4")
+  # chaudoudous.photo.attach(io: record, filename: 'chaudetdoux.jpg', content_type: 'image/jpg')
+  chaudoudous.save!
+
+  puts '> Le loup et l\'agneau'
+  loupagneau = Audiobook.create(title: "Le loup et l'agneau", author: "Jean de la Fontaine", duration: 300, description: "Un jour, un tendre agneau buvait dans une rivière. Un loup qui n'avait pas mangé depuis longtemps arrive et se met en colère contre l'agneau. Le loup cherche des reproches à faire à l'agneau mais l'agneau a toujours réponse à ses reproches. Finalement, le loup mange quand même l'agneau innocent.")
+  pic = File.open("app/assets/images/loupagneau.jpg")
+  loupagneau.photo.attach(io: pic, filename: 'loupagneau.jpg', content_type: 'image/jpg')
+  loupagneau.save!
+

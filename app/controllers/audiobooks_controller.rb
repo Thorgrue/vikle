@@ -16,9 +16,11 @@ class AudiobooksController < ApplicationController
 
   def create
     @audiobook = Audiobook.create(audiobook_params)
-    @audiobook.save
-
-    redirect_to audiobook_path(@audiobook)
+    if @audiobook.save
+      redirect_to audiobook_path(@audiobook)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -43,6 +45,6 @@ class AudiobooksController < ApplicationController
   end
 
   def audiobook_params
-    params.require(:audiobook).permit(:title, :author, :description, :duration)
+    params.require(:audiobook).permit(:title, :author, :description, :duration, :photo, :audio)
   end
 end

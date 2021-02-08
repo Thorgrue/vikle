@@ -3,6 +3,7 @@
   Enjoy ✨</h1>
     <% @audiobooks.each do |audiobook| %>
       <div class="m-2 p-2 bg-framboise rounded-lg">
+        <%= cl_image_tag audiobook.photo.key, height: 300, width: 400, crop: :fill %>
         <p><%= audiobook.title %></p>
         <p><%= audiobook.author %></p>
         <p><%= audiobook.duration %> minutes</p>

@@ -1,20 +1,20 @@
-<div class="container m-2 p-2"><h2>Nouvel conte / Modifier mon conte</h2>
-
 <%= simple_form_for(@audiobook) do |f| %>
   <div class="form-inputs">
     <%= f.input :title,
                 required: true,
                 autofocus: true,
-                label: "Titre ",
+                label: "Titre du conte",
                 input_html: { autocomplete: "Le conte..." } %>
     <%= f.input :author,
                 required: true,
-                label: "Auteur⋅rice",
+                label: "Auteur⋅rice du conte",
                 input_html: { autocomplete: "Mr Seguin" } %>
     <%= f.input :description,
                 required: true,
                 label: "Résumé du conte",
                 input_html: { autocomplete: "Il était une fois..." } %>
+    <%= f.input :photo, as: :file %>
+    <%= f.input :audio, as: :file, :resource_type => :video %>
     <%= f.input :duration, as: :integer,
                 required: true,
                 label: "Durée de l'enregistrement",
@@ -22,7 +22,6 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Poster" %>
+    <%= f.button :submit, "Hop et voilà!" %>
   </div>
 <% end %>
-</div>

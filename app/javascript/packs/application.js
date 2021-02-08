@@ -22,6 +22,7 @@ require("channels")
 
 // Internal imports, e.g:
 import '../stylesheets/application.scss';
+import "tailwindcss/tailwind.css"
 
 
 document.addEventListener('turbolinks:load', () => {

@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="m-2 p-2 bg-framboise rounded-lg">
+      <%= cl_image_tag @audiobook.photo.key, height: 300, width: 400, crop: :fill %>
+      <%= @audiobook.title %>
+      <p><%= @audiobook.author %></p>
+      <p><%= @audiobook.duration %> minutes</p>
+      <p><%= @audiobook.description %><p>
+
+      <% audio = cl_video_path(@audiobook.audio.key, :resource_type => :video) %>
+      <audio src="<%= audio %>" controls></audio>
+      <p><%= link_to "📝", edit_audiobook_path(@audiobook) %>
+        <%= link_to "🗑",
+              audiobook_path(@audiobook),
+              method: :delete,
+              data: { confirm: "Tu es sûr⋅e de toi?" } %></p>
+    </div>
+
+  <p class="text-center mx-auto w-6/12 bg-soleil rounded-full shadow"><%= link_to "Voir tous les contes", audiobooks_path  %></p>
+</div>

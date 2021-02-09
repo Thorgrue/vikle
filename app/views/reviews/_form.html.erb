@@ -1,0 +1,17 @@
+<%= simple_form_for [@audiobook, @review ] do |f| %>
+  <div class="form-inputs">
+    <%= f.input :comment,
+                required: true,
+                autofocus: true,
+                label: "Commentaire",
+                input_html: { autocomplete: "J'adore" } %>
+    <%= f.input :rating, as: :integer,
+                required: true,
+                label: "Note /5",
+                input_html: { autocomplete: "4" } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Hop et voilà!" %>
+  </div>
+<% end %>

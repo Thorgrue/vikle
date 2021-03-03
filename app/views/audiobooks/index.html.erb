@@ -2,12 +2,11 @@
   <h1 class="m-2 text-center">Hey hey, voilà tous les contes que tu peux écouter ici!
   Enjoy ✨</h1>
     <% @audiobooks.each do |audiobook| %>
-      <div class="m-2 p-2 bg-framboise rounded-lg">
+      <div class="m-4 p-3 bg-framboise rounded-lg text-center">
         <%= cl_image_tag audiobook.photo.key, height: 300, width: 400, crop: :fill %>
-        <p><%= audiobook.title %></p>
-        <p><%= audiobook.author %></p>
-        <p><%= audiobook.duration %> minutes</p>
-        <%= link_to "Écouter le conte", audiobook_path(audiobook)  %>
+        <p class="font-bold mt-1"><%= audiobook.title %></p>
+        <p class="italic text-sm"><%= audiobook.author %> | <%= audiobook.duration %> minutes</p>
+        <p class="rounded-full border border-black mx-auto w-1/6 hover:text-framboise hover:bg-black text-2xl"><%= link_to "👂", audiobook_path(audiobook) %></p>
       </div>
     <% end %>
     <p class="text-center mx-auto w-6/12 bg-soleil rounded-full shadow"><%= link_to 'Enregistre ton conte', new_audiobook_path  %></p>

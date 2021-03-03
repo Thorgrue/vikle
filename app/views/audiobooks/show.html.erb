@@ -1,36 +1,56 @@
 <div class="container">
-    <div class="m-4 p-3 bg-framboise rounded-lg text-center">
-        <%= cl_image_tag @audiobook.photo.key, height: 300, width: 400, crop: :fill %>
-        <p class="font-bold mt-1"><%= @audiobook.title %></p>
-        <p class="text-sm">( <%= link_to "📝", edit_audiobook_path(@audiobook) %> |
-          <%= link_to "🗑",
-                audiobook_path(@audiobook),
-                method: :delete,
-                data: { confirm: "Tu es sûr⋅e de toi?" } %> )</p>
-        <p class="italic text-sm"><%= @audiobook.author %> | <%= @audiobook.duration %> minutes</p>
-        <p class="text-sm my-3"><%= @audiobook.description %><p>
-        <% audio = cl_video_path(@audiobook.audio.key, :resource_type => :video) %>
-        <span class="w-full"><audio src="<%= audio %>" controls></audio></span>
 
-      <div class="bg-white bg-opacity-50 mt-3 pb-1 px-3 text-left rounded-lg">
-      <button class=""><%= link_to 'Leave a review', new_audiobook_review_path(@audiobook) %></button>
-      <ul class="list-group">
-        <% @audiobook.reviews.each do |review| %>
-          <li class="bg-white bg-opacity-80 my-1 px-2 rounded-lg flex justify-between inline-block">
-            <p><%= review.rating %> ⭐️ - <%= review.comment %>
-            <span class="italic"> - <%= review.user.username %></span></p>
+  <!-- presentation card -->
+  <div class="mx-4 p-3 bg-framboise rounded-lg text-center shadow">
+    <%= cl_image_tag @audiobook.photo.key, height: 300, width: 400, crop: :fill %>
+    <p class="text-2xl font-bold font-nanum-pen mt-1"><%= @audiobook.title %></p>
+    <% if current_user == @audiobook.user %>
+      <p class="text-sm mb-3">( <%= link_to "📝", edit_audiobook_path(@audiobook) %> |
+      <%= link_to "🗑",
+          audiobook_path(@audiobook),
+          method: :delete,
+          data: { confirm: "Tu es sûr⋅e de toi?" } %> )</p>
+    <% end %>
+    <p class="text-xs text-justify py-2"><%= @audiobook.description %><p>
+    <div class="w-full font-nanum-pen text-lg grid grid-cols-3 -px-1">
+      <p>✍️</p>
+      <p>🎙</p>
+      <p>⏳</p>
+      <p><%= @audiobook.author %></p>
+      <p><%= @audiobook.user.username %></p>
+      <p><%= @audiobook.duration %>''</p>
+    </div>
+  </div>
+
+  <!-- player -->
+  <div class="mx-4 p-3">
+    <% audio = cl_video_path(@audiobook.audio.key, :resource_type => :video) %>
+    <audio class="shadow rounded-full w-full" src="<%= audio %>" controls></audio>
+  </div>
+
+  <!-- reviews card -->
+  <div class="mx-4 p-2 bg-gray-300 rounded-lg text-right shadow">
+    <p class="flex justify-between text-sm"><%= @audiobook.average_rating.to_i %> ⭐️ ( <%= @audiobook.reviews.count %> avis )
+      <%= link_to 'Leave a review', new_audiobook_review_path(@audiobook) %></p>
+    <ul class="list-group">
+      <% @audiobook.reviews.each do |review| %>
+        <li class="text-left bg-white bg-opacity-80 my-1 px-2 rounded-lg">
+          <div class="text-xs pt-1 flex justify-between inline-block">
+            <p><%= review.rating %> ⭐️ - <%= review.user.username %>
             <p class=""><% if current_user == review.user %>
             <%= link_to "🗑",
               review_path(review),
               method: :delete,
               data: { confirm: "Tu es sûr⋅e de toi?" } %>
             <% end %></p>
-          </li>
-        <% end %>
-      </ul>
-      </div>
-
+          </div>
+        <p class="text-sm"><%= review.comment %> </p>
+        </li>
+      <% end %>
+    </ul>
     </div>
 
-  <p class="text-center mx-auto w-6/12 bg-soleil rounded-full shadow"><%= link_to "Voir tous les contes", audiobooks_path  %></p>
+  </div>
+
+  <p class="my-3 text-center mx-auto w-6/12 bg-soleil rounded-full shadow"><%= link_to "Voir tous les contes", audiobooks_path  %></p>
 </div>

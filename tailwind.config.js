@@ -10,6 +10,10 @@ module.exports = {
         'canard':'#086788',
         'prairie':'#33CA7F',
       },
+      fontFamily: {
+       'title-play': ['"Playfair Display SC"', 'serif'],
+       'nanum-pen': ["Nanum Pen Script", 'cursive']
+      },
     },
   },
   variants: {

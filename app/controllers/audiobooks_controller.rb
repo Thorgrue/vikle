@@ -1,5 +1,4 @@
 class AudiobooksController < ApplicationController
-
   skip_before_action :authenticate_user!, only: :index
   before_action :set_audiobook, only: [:show, :edit, :update, :destroy]
 
@@ -8,6 +7,11 @@ class AudiobooksController < ApplicationController
   end
 
   def show
+    @average = @audiobook.average_rating
+  end
+
+  def show_my
+    @my_audiobooks = Audiobook.where(user: current_user)
   end
 
   def new

@@ -20,7 +20,21 @@
       <p><%= @audiobook.user.username %></p>
       <p><%= @audiobook.duration %>''</p>
     </div>
+    <div class="btn-fav-fav">
+    <% if current_user != nil %>
+      <% if @favorite %>
+        <%= link_to favorite_path(@favorite), method: :delete do %>
+          ♥︎
+        <% end %>
+      <% else %>
+        <%= link_to audiobook_favorites_path(@audiobook), method: :post do %>
+          ♡
+        <% end %>
+      <% end %>
+    <% end %>
+    </div>
   </div>
+
 
   <!-- player -->
   <div class="mx-4 p-3">

@@ -22,7 +22,7 @@
     <p class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></p>
     <% end %>
   <p class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><%= link_to "Mes contes enregistrés", my_audiobooks_path %></p>
-  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Mes contes favoris</a>
+  <p class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><%= link_to "Mes contes favoris", audiobooks_favorites_path %></p>
 </div>
 </div>
 

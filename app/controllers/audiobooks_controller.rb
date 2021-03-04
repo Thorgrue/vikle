@@ -8,6 +8,7 @@ class AudiobooksController < ApplicationController
 
   def show
     @average = @audiobook.average_rating
+    @favorite = @audiobook.favorites.find_by(user: current_user)
   end
 
   def show_my

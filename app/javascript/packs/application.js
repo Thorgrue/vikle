@@ -22,9 +22,11 @@ require("channels")
 
 // Internal imports, e.g:
 import '../stylesheets/application.scss';
-import "tailwindcss/tailwind.css"
+import "tailwindcss/tailwind.css";
+import { toggleMenu } from "../components/burger_menu";
 
 
 document.addEventListener('turbolinks:load', () => {
+  toggleMenu();
   // Call your functions here, e.g:
 });

@@ -9,13 +9,13 @@
   </div>
   <% end %>
 
-<button class="flex text-sm" id="user-menu" aria-haspopup="true">
+<button class="flex text-sm" id="burger-menu" aria-haspopup="true">
     <p class="text-4xl font-nanum-pen flex">
     🍔
   </p>
 </button>
 </div>
-<div class="origin-top-right absolute right-0 w-48 rounded-md shadow-lg bg-white" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+<div class="hidden origin-top-right absolute right-0 mt-1 mr-1 w-48 rounded-md shadow-lg bg-white" id="menu" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
   <% if current_user.nil? %>
     <p class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><%= link_to "Se connecter", new_user_session_path %></p>
   <% else %>

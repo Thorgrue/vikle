@@ -1,24 +1,31 @@
-<div class="container">
-  <h1 class="m-2 text-center">Regarde tous tes contes favoris !
-  Enjoy ✨</h1>
-    <% @fav_audiobooks.each do |audiobook| %>
-    <%= link_to audiobook_path(audiobook) do %>
-        <div class="m-4 p-3 bg-prairie rounded-lg text-center">
-          <%= cl_image_tag audiobook.photo.key, height: 300, width: 400, crop: :fill %>
-          <p class="text-2xl font-nanum-pen mt-1 mb-3"><%= audiobook.title %></p>
-          <div class="w-full font-nanum-pen text-lg grid grid-cols-3">
-            <p class="text-sm"><% audiobook.average_rating.to_i.times do %>
-              ⭐️
-              <% end %>
-            </p>
-            <p>🎙</p>
-            <p>⏳</p>
-            <p><%= audiobook.reviews.count %> avis</p>
-            <p><%= audiobook.user.username %></p>
-            <p><%= audiobook.duration %>''</p>
+<div class="container mx-auto">
+  <% if @fav_audiobooks != nil && @fav_audiobooks.count > 0 %>
+    <h1 class="m-2 text-center">Regarde tous tes contes favoris !
+    Enjoy ✨</h1>
+    <div class="md:grid md:grid-flow-row md:grid-cols-3 md:w-full sm:w-2/3">
+      <% @fav_audiobooks.each do |audiobook| %>
+      <%= link_to audiobook_path(audiobook) do %>
+          <div class="m-4 p-3 bg-prairie rounded-lg text-center">
+            <%= cl_image_tag audiobook.photo.key, height: 300, width: 400, crop: :fill %>
+            <p class="text-2xl font-nanum-pen mt-1 mb-3"><%= audiobook.title %></p>
+            <div class="w-full font-nanum-pen text-lg grid grid-cols-3">
+              <p class="text-sm"><% audiobook.average_rating.to_i.times do %>
+                ⭐️
+                <% end %>
+              </p>
+              <p>🎙</p>
+              <p>⏳</p>
+              <p><%= audiobook.reviews.count %> avis</p>
+              <p><%= audiobook.user.username %></p>
+              <p><%= audiobook.duration %>''</p>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
-  <p class="my-3 text-center mx-auto w-6/12 bg-soleil rounded-full shadow"><%= link_to "Voir tous les contes", audiobooks_path  %></p>
+    </div>
+    <p class="my-3 text-center mx-auto w-6/12 bg-soleil rounded-full shadow"><%= link_to "Voir tous les contes", audiobooks_path  %></p>
+  <% else %>
+    <h1 class="m-2 text-center">Tu n'as pas encore de contes préférés, pars à leurs découvertes !</h1>
+    <p class="my-3 text-center mx-auto w-6/12 bg-soleil rounded-full shadow"><%= link_to "Découvrir tous les contes", audiobooks_path  %></p>
+  <% end %>
 </div>

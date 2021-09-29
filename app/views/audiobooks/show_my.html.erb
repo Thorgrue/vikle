@@ -1,6 +1,7 @@
-<div class="container">
+<div class="container mx-auto">
   <h1 class="m-2 text-center">Voilà tous les contes que tu as enregistré!
   Merci pour ça ✨</h1>
+  <div class="md:grid md:grid-flow-row md:grid-cols-3 md:w-full sm:w-2/3">
     <% @my_audiobooks.each do |audiobook| %>
     <%= link_to audiobook_path(audiobook) do %>
         <div class="m-4 p-3 bg-ciel rounded-lg text-center">
@@ -20,5 +21,6 @@
         </div>
       <% end %>
     <% end %>
-    <p class="mb-3 text-center mx-auto w-8/12 bg-soleil rounded-full shadow"><%= link_to 'Enregistre mon nouveau conte', new_audiobook_path  %></p>
+  </div>
+    <p class="my-3 text-center mx-auto w-6/12 bg-soleil rounded-full shadow"><%= link_to 'Enregistre un nouveau conte', new_audiobook_path  %></p>
 </div>

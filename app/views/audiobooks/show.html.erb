@@ -1,8 +1,8 @@
-<div class="container">
+<div class="px-10 w-full">
 
   <!-- presentation card -->
-  <div class="mx-4 p-3 bg-framboise rounded-lg text-center shadow">
-    <%= cl_image_tag @audiobook.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="mx-4 md:mx-auto p-3 bg-framboise rounded-lg text-center shadow sm:w-2/3 md:w-1/3">
+    <div class="mx-auto"><%= cl_image_tag @audiobook.photo.key, height: 300, width: 400, crop: :fill %></div>
     <p class="text-2xl font-bold font-nanum-pen mt-1"><%= @audiobook.title %></p>
     <% if current_user == @audiobook.user %>
       <p class="text-sm mb-3">( <%= link_to "📝", edit_audiobook_path(@audiobook) %> |
@@ -37,15 +37,14 @@
 
 
   <!-- player -->
-  <div class="mx-4 p-3">
+  <div class="mx-4 p-3 md:mx-auto md:w-1/2">
     <% audio = cl_video_path(@audiobook.audio.key, :resource_type => :video) %>
     <audio class="shadow rounded-full w-full" src="<%= audio %>" controls></audio>
   </div>
 
   <!-- reviews card -->
-  <div class="mx-4 p-2 bg-gray-300 rounded-lg text-right shadow">
-    <p class="flex justify-between text-sm"><%= @audiobook.average_rating.to_i %> ⭐️ ( <%= @audiobook.reviews.count %> avis )
-      <%= link_to 'Leave a review', new_audiobook_review_path(@audiobook) %></p>
+  <div class="mx-4 p-2 bg-gray-300 rounded-lg text-right shadow md:mx-auto md:w-1/2">
+    <p class="text-left font-nanum-pen text-xl px-2"><%= @audiobook.reviews.count %> avis des autres utilisateurs (<%= @audiobook.average_rating.to_i %> ⭐️)</p>
     <ul class="list-group">
       <% @audiobook.reviews.each do |review| %>
         <li class="text-left bg-white bg-opacity-80 my-1 px-2 rounded-lg">
@@ -62,9 +61,10 @@
         </li>
       <% end %>
     </ul>
+    <p class="text-sm mx-4"><%= link_to 'Partage ton avis', new_audiobook_review_path(@audiobook) %></p>
     </div>
 
   </div>
 
-  <p class="my-3 text-center mx-auto w-6/12 bg-soleil rounded-full shadow"><%= link_to "Voir tous les contes", audiobooks_path  %></p>
+  <p class="my-3 text-center md:mx-auto md:w-1/3 bg-soleil rounded-full shadow"><%= link_to "Voir tous les contes", audiobooks_path  %></p>
 </div>

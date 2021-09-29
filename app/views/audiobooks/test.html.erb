@@ -1,0 +1,8 @@
+<div class="container mx-auto">
+  <div class="md:grid md:grid-flow-row md:grid-cols-10 mx-80">
+    <% 100.times do %>
+      <div class="w-8 p-8 <%= @colors_backgrounds.sample %> <%= @shapes_angles.sample %>"></div>
+    <% end %>
+  </div>
+  <p class="text-center"><%= link_to "🔄", "" %></p>
+</div>

@@ -29,6 +29,11 @@ class AudiobooksController < ApplicationController
     end
   end
 
+  def test
+    @colors_backgrounds = ['bg-ciel','bg-soleil','bg-framboise','bg-prairie','bg-canard']
+    @shapes_angles = ['rounded-t-3xl','rounded-3xl','rounded-r-3xl','rounded-b-3xl','rounded-l-3xl','rounded-full','rounded-tr-3xl','rounded-br-3xl','rounded-bl-3xl','rounded-tl-3xl']
+  end
+
   def edit
   end
 

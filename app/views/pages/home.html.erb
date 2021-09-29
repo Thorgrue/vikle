@@ -1,5 +1,6 @@
-<div class="container flex-col h-screen">
-    <p class="m-auto"><%= image_tag "homepage.jpg" %></p>
-  <h1 class="text-center p-3 m-auto"><%= link_to "Découvre tous les contes", audiobooks_path %></h1>
+<div class=" flex-col h-screen">
+    <div class="md:visible md:h-auto lg:visible lg:h-auto invisible"><%= image_tag "viklesmallerbanner.png" %></div>
+    <p class="my-6 text-center mx-auto md:w-2/6 w-1/2 p-3 bg-soleil rounded-full shadow"><%= link_to "Découvre tous les contes", audiobooks_path  %></p>
+    <div class="md:invisible"><%= image_tag "homepage.jpg" %></div>
 
 </div>

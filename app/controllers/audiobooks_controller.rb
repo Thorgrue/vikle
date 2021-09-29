@@ -4,6 +4,7 @@ class AudiobooksController < ApplicationController
 
   def index
     @audiobooks = Audiobook.all
+    @colors_backgrounds = ['bg-ciel','bg-soleil','bg-framboise','bg-prairie','bg-canard']
   end
 
   def show
